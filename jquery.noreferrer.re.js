@@ -8,22 +8,22 @@
 (function() {
     var ua = navigator.userAgent.toLowerCase();
 
-	$.browser = $.browser || {};
-	$.browser.mozilla = /firefox/.test(ua);
-	$.browser.webkit = /webkit/.test(ua);
-	$.browser.opera = /opera/.test(ua);
-	$.browser.msie = /msie/.test(ua);
-    if(! $.browser.msie && ua.match(/rv:([\d.]+)\) like gecko/)) { // IE11
+    $.browser = $.browser || {};
+    $.browser.mozilla = /firefox/.test(ua);
+    $.browser.webkit = /webkit/.test(ua);
+    $.browser.opera = /opera/.test(ua);
+    $.browser.msie = /msie/.test(ua);
+    if (!$.browser.msie && ua.match(/rv:([\d.]+)\) like gecko/)) { // IE11
         $.browser.msie = true;
     }
-    $.browser.edge = ! $.browser.msie && /edge/.test(ua);
+    $.browser.edge = !$.browser.msie && /edge/.test(ua);
 
-	(function() {
-        if($.browser.edge || $.browser.webkit) {
+    (function() {
+        if ($.browser.edge || $.browser.webkit) {
             return;
         }
 
-		$.event.add(window, "load", function() {
+        $.event.add(window, "load", function() {
             $("a[href][rel~=noreferrer], area[href][rel~=noreferrer]").each(function() {
                 var b, e, c, g, d, f, h;
                 b = this;
@@ -60,5 +60,5 @@
                     })))
             })
         })
-	}());
+    }());
 }).call(this);
